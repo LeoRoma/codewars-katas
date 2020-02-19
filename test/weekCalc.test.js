@@ -14,4 +14,8 @@ describe('WeekCalc', () => {
   it("should return 'true' with 'Tuesday' bigger than 95", () => {
     expect(weekCalc.calculation('Tuesday', 96)).toBe(true);
   });
+
+  it("should return 'true' with 'Wednesday' equal 34", () => {
+    expect(weekCalc.calculation('Wednesday', 34)).toBe(true);
+  })
 });
