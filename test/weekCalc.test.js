@@ -7,7 +7,11 @@ describe('WeekCalc', () => {
     weekCalc = new WeekCalc;
   });
 
-  it("should return 'true' with 'Monday'", () => {
-    expect(weekCalc.calculation('Monday', 13)).toBe(false)
+  it("should return 'false' with 'Monday', 13", () => {
+    expect(weekCalc.calculation('Monday', 13)).toBe(false);
   }); 
+  
+  it("should return 'true' with 'Tuesday' bigger than 95", () => {
+    expect(weekCalc.calculation('Tuesday', 96)).toBe(true);
+  });
 });
