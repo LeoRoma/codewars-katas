@@ -7,6 +7,8 @@ class WeekCalc {
       return true
     } else if (day === 'Wednesday' && number === 34) {
       return true
+    } else if (day === 'Thursday' && number === 0) {
+      return true
 
     } else {
       return false
