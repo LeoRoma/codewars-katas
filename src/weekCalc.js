@@ -9,9 +9,12 @@ class WeekCalc {
       return true
     } else if (day === 'Thursday' && number === 0) {
       return true
-    }else if(day === 'Friday' && number % 2 === 0 ){
+    } else if (day === 'Friday' && number % 2 === 0) {
       return true
-    
+    } else if (day === 'Saturday' && number === 56) {
+      return true
+    } else if (day === 'Sunday' && (number === 666 || number === -666)) {
+      return true
     } else {
       return false
     }

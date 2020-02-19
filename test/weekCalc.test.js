@@ -26,4 +26,12 @@ describe('WeekCalc', () => {
   it("should return 'true' with 'Friday' divisible by 2", () => {
     expect(weekCalc.calculation('Friday', 14)).toBe(true);
   });
+
+  it("should return 'true' with 'Saturday' equal to 56", () => {
+    expect(weekCalc.calculation('Saturday', 56)).toBe(true);
+  });
+
+  it("should return 'true' with 'Sunday' equal to 666 or -666", () => {
+    expect(weekCalc.calculation('Sunday', 666)).toBe(true);
+  });
 });
