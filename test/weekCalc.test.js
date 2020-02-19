@@ -5,33 +5,81 @@ describe('WeekCalc', () => {
 
   beforeEach(() => {
     weekCalc = new WeekCalc;
+
   });
 
-  it("should return 'false' with 'Monday', 13", () => {
-    expect(weekCalc.calculation('Monday', 13)).toBe(false);
-  }); 
-  
-  it("should return 'true' with 'Tuesday' bigger than 95", () => {
-    expect(weekCalc.calculation('Tuesday', 96)).toBe(true);
+  describe('Monday', () => {
+    it("should return 'false' with number different from 12", () => {
+      expect(weekCalc.AmIAfraid('Monday', 13)).toBe(false);
+    });
+
+    it("should return 'true' with, 12", () => {
+      expect(weekCalc.AmIAfraid('Monday', 12)).toBe(true);
+    });
+
   });
 
-  it("should return 'true' with 'Wednesday' equal 34", () => {
-    expect(weekCalc.calculation('Wednesday', 34)).toBe(true);
+  describe('Tuesday', () => {
+    it("should return 'true' with bigger than 95", () => {
+      expect(weekCalc.AmIAfraid('Tuesday', 96)).toBe(true);
+    });
+
+    it("should return 'false' with smaller than 95", () => {
+      expect(weekCalc.AmIAfraid('Tuesday', 94)).toBe(false);
+    });
   });
 
-  it("should return 'true' with 'Thursday' equal to 0", () => {
-    expect(weekCalc.calculation('Thursday', 0)).toBe(true);
+  describe('Wednesday', () => {
+    it("should return 'true' with equal 34", () => {
+      expect(weekCalc.AmIAfraid('Wednesday', 34)).toBe(true);
+    });
+
+    it("should return 'false' with number different from 34", () => {
+      expect(weekCalc.AmIAfraid('Wednesday', 35)).toBe(false);
+    });
   });
 
-  it("should return 'true' with 'Friday' divisible by 2", () => {
-    expect(weekCalc.calculation('Friday', 14)).toBe(true);
+  describe('Thursday', () => {
+    it("should return 'true' with equal 0", () => {
+      expect(weekCalc.AmIAfraid('Thursday', 0)).toBe(true);
+    });
+
+    it("should return 'false' with different from 1", () => {
+      expect(weekCalc.AmIAfraid('Thursday', 1)).toBe(false);
+    });
   });
 
-  it("should return 'true' with 'Saturday' equal to 56", () => {
-    expect(weekCalc.calculation('Saturday', 56)).toBe(true);
+  describe('Friday', () => {
+    it("should return 'true' with divisible by 2", () => {
+      expect(weekCalc.AmIAfraid('Friday', 14)).toBe(true);
+    });
+
+    it("should return 'false' with no divisible by 2", () => {
+      expect(weekCalc.AmIAfraid('Friday', 1)).toBe(false);
+    });
   });
 
-  it("should return 'true' with 'Sunday' equal to 666 or -666", () => {
-    expect(weekCalc.calculation('Sunday', 666)).toBe(true);
+  describe('Saturday', () => {
+    it("should return 'true' with equal 56", () => {
+      expect(weekCalc.AmIAfraid('Saturday', 56)).toBe(true);
+    });
+
+    it("should return 'false' different from 56", () => {
+      expect(weekCalc.AmIAfraid('Saturday', 1)).toBe(false);
+    });
+  });
+
+  describe('Sunday', () => {
+    it("should return 'true' with equal 666", () => {
+      expect(weekCalc.AmIAfraid('Sunday', 666)).toBe(true);
+    });
+
+    it("should return 'true' with equal -666", () => {
+      expect(weekCalc.AmIAfraid('Sunday', -666)).toBe(true);
+    });
+
+    it("should return 'false' with different from 666 or -666", () => {
+      expect(weekCalc.AmIAfraid('Sunday', 1)).toBe(false);
+    });
   });
 });

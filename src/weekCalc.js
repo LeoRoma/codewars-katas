@@ -1,24 +1,17 @@
 class WeekCalc {
 
-  calculation(day, number) {
-    if (day === 'Monday' && number === 12) {
-      return true
-    } else if (day === 'Tuesday' && number > 95) {
-      return true
-    } else if (day === 'Wednesday' && number === 34) {
-      return true
-    } else if (day === 'Thursday' && number === 0) {
-      return true
-    } else if (day === 'Friday' && number % 2 === 0) {
-      return true
-    } else if (day === 'Saturday' && number === 56) {
-      return true
-    } else if (day === 'Sunday' && (number === 666 || number === -666)) {
-      return true
-    } else {
-      return false
-    }
-  };
+  AmIAfraid(day, num) {
+    return {
+      "Monday": num === 12,
+      "Tuesday": num > 95,
+      "Wednesday": num === 34,
+      "Thursday": num === 0,
+      "Friday": num % 2 === 0,
+      "Saturday": num === 56,
+      "Sunday": Math.abs(num) === 666
+    }[day];
+  }
+
 };
 
 module.exports = WeekCalc;
