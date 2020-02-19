@@ -20,6 +20,10 @@ describe('WeekCalc', () => {
   });
 
   it("should return 'true' with 'Thursday' equal to 0", () => {
-    expect(weekCalc.calculation('Thursday', 0)).toBe(true)
-  })
+    expect(weekCalc.calculation('Thursday', 0)).toBe(true);
+  });
+
+  it("should return 'true' with 'Friday' divisible by 2", () => {
+    expect(weekCalc.calculation('Friday', 14)).toBe(true);
+  });
 });
