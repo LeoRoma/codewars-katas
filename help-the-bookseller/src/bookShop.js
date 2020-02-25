@@ -7,10 +7,8 @@ function bookShop(listOfArt, listOfCat) {
     let book = books[0];
     let code = books[1];
     let initialOfBook = book[0]
-    if(initialOfBook === initialOfBook){
-      console.log(initialOfBook)
-    }
-    console.log(initialOfBook)
+    // console.log(book)
+    console.log(initialOfBook.length)
     bookList.push({ initOfBook: initialOfBook, code: code })
   };
 
