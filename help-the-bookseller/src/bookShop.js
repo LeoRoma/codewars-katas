@@ -10,17 +10,19 @@ function bookShop(listOfArt, listOfCat) {
     bookObject[key] = code
   };
   // console.log(bookObject)
-
-  if(listOfArt.length < 2){
-    // console.log(bookObject[listOfCat])
-    console.log(Object.keys(bookObject))
-      // return(`(${initialB} : ${code})`)
+  if (listOfArt.length < 2) {
+    let keyBook = Object.keys(bookObject)
+    let codeBook = bookObject[listOfCat]
+    return (`(${keyBook} : ${codeBook})`)
+  } else {
+    let result = ""
+    for (let i = 0; i < listOfCat.length; i++) {
+      if (bookObject[listOfCat[i]]) {
+        result += `(${listOfCat[i]} : ${bookObject[listOfCat[i]]}) - `
+      }
+    }
+    return (result.slice(0, -3))
   }
-  // if (listOfArt.length < 2) {
-  //   if (listOfCat[0] === initialB) {
-  //     return (`(${initialB} : ${code})`)
-  //   };
-  // }
   // for (let i = 0; i < listOfCat.length; i++) {
 
 
