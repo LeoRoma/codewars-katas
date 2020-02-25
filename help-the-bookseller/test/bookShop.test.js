@@ -12,5 +12,11 @@ describe('bookShop', () => {
     s = ['ABART 20', 'BKWRK 100'];
     c = ['A', 'B'];
     expect(bookShop(s, c)).toEqual('(A : 20) - (B : 100)');
-  })
+  });
+
+  it('should return "A : 20, B : 100" with "ABART 20, BKWRK 100", "CDXEF 50"', () => {
+    s = ['ABART 20', 'BKWRK 100', "CDXEF 50"];
+    c = ['A', 'B', 'C'];
+    expect(bookShop(s, c)).toEqual('(A : 20) - (B : 100) - (C : 50)');
+  });
 });

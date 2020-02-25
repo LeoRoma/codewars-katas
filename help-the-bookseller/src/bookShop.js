@@ -9,7 +9,6 @@ function bookShop(listOfArt, listOfCat) {
     let key = initialBook
     bookObject[key] = code
   };
-  // console.log(bookObject)
   if (listOfArt.length < 2) {
     let keyBook = Object.keys(bookObject)
     let codeBook = bookObject[listOfCat]
@@ -20,15 +19,9 @@ function bookShop(listOfArt, listOfCat) {
       if (bookObject[listOfCat[i]]) {
         result += `(${listOfCat[i]} : ${bookObject[listOfCat[i]]}) - `
       }
-    }
+    };
     return (result.slice(0, -3))
-  }
-  // for (let i = 0; i < listOfCat.length; i++) {
-
-
-  //     console.log(initialBook[listOfCat[i]])
-
-  // }
+  };
 };
 
 
