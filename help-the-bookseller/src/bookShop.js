@@ -2,6 +2,7 @@ function bookShop(listOfArt, listOfCat) {
   let sortedBookList = listOfArt.sort();
   let bookWithCodeList = [];
   let sumOfCodeList = {};
+  let result = ""
 
   for (let i = 0; i < sortedBookList.length; i++) {
     let books = sortedBookList[i].split(' ');
@@ -21,22 +22,29 @@ function bookShop(listOfArt, listOfCat) {
     }
   });
 
-  console.log(sumOfCodeList)
+  // if (sumOfCodeList.length < 2) {
+  //   let keyBook = Object.keys(bookObject)
+  //   let codeBook = bookObject[listOfCat]
+  //   return (`(${keyBook} : ${codeBook})`)
+  // } else {
+    // const sumOfCodeList = bookWithCodeList.reduce((result, item) => {
+    //   listOfCat.forEach(key => {
+    //     // console.log(key)
+    //     if (!result[key]) {
+    //       result[key] = 0;
+    //     }
+    //     // console.log(item[key])
+    //     let value = parseInt(item[key], 10);
+    //     result[key] += value;
+    //   });
 
-  if (sumOfCodeList.length < 2) {
-    let keyBook = Object.keys(bookObject)
-    let codeBook = bookObject[listOfCat]
-    return (`(${keyBook} : ${codeBook})`)
-  } else {
-    let result = ""
-    for (let i = 0; i < listOfCat.length; i++) {
-      if (sumOfCodeList[listOfCat[i]]) {
-        result += `(${listOfCat[i]} : ${sumOfCodeList[listOfCat[i]]}) - `
-      }
-    };
-    return (result.slice(0, -3))
+    //   return result;
+    // }, {});
+    console.log(sumOfCodeList)
   };
-};
+  // return (result.slice(0, -3))
+
+
 
 
 
