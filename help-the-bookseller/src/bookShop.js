@@ -32,20 +32,16 @@ function bookShop(listOfArt, listOfCat) {
   //   let codeBook = bookObject[listOfCat]
   //   return (`(${keyBook} : ${codeBook})`)
   // } else {
-  const sumOfCodeList = bookWithCodeList.reduce((result, item) => {
-    listOfCat.forEach(key => {
-      // console.log(key)
-      if (!result[key]) {
-        result[key] = 0;
-      }
-      // console.log(item[key])
-      let value = parseInt(item[key], 10);
-      result[key] += value;
-    });
-
-    return result;
+  const sumOfCodeList = listOfCat.reduce(function(acc, curr) {
+    
+    acc[curr] = 0;
+    return acc;
   }, {});
-    console.log(sumOfCodeList)
+  console.log(sumOfCodeList)
+
+
+
+  // console.log(sumOfCodeList)
 };
 // return (result.slice(0, -3))
 
