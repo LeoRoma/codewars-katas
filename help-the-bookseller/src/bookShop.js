@@ -11,29 +11,19 @@ function bookShop(listOfArt, listOfCat) {
     let book = books[0];
     let code = books[1];
     let initialOfBook = book[0]
+    console.log(initialOfBook)
     bookWithCode[initialOfBook] = code
     bookWithCodeList.push(bookWithCode)
   };
 
   console.log(bookWithCodeList)
 
-  // bookWithCodeList.forEach(function (book) {
-  //   let code = parseInt(book.code)
-  //   let initial = book.initial
-  //   if (sumOfCodeList.hasOwnProperty(initial)) {
-  //     sumOfCodeList[initial] = sumOfCodeList[initial] + code;
-  //   } else {
-  //     sumOfCodeList[initial] = code;
-  //   }
-  // });
-
   // if (sumOfCodeList.length < 2) {
   //   let keyBook = Object.keys(bookObject)
   //   let codeBook = bookObject[listOfCat]
   //   return (`(${keyBook} : ${codeBook})`)
   // } else {
-  const sumOfCodeList = listOfCat.reduce(function(acc, curr) {
-    
+  const sumOfCodeList = listOfCat.reduce(function (acc, curr) {
     acc[curr] = 0;
     return acc;
   }, {});
