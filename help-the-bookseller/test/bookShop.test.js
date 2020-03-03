@@ -9,7 +9,7 @@ describe('BookShop', () => {
     bookShop = new BookShop(s, c)
   });
 
-  it('should return "A : 20" with "ABART 20"', () => {
+  xit('should return "A : 20" with "ABART 20"', () => {
     s = ['ABART 20'];
     c = ['A'];
     expect(bookShop.stockList(s, c)).toEqual('(A : 20)');
@@ -46,7 +46,13 @@ describe('BookShop', () => {
   });
 
   it('should return array with objects', () => {
-    bookShop.convertBookWithCodeList(s)
-    expect(bookShop.bookWithCodeList).toEqual(expect.arrayContaining([{ 'initial': 'A', 'code': '20' }]))
+    bookShop.convertBookWithQtyList()
+    expect(bookShop.bookWithQtyList).toEqual(expect.arrayContaining([{ 'initial': 'A', 'quantity': '20' }]))
+  });
+
+  it('should return book with quantity object', () => {
+    // bookObject = [{ 'initial': 'A', 'quantity': '20' }]
+    bookShop.addingQuantity()
+    expect(bookShop.sumOfQtyObject).toEqual(expect.arrayContaining([{ 'initial': 'A', 'quantity': '20' }]))
   });
 });

@@ -1,21 +1,27 @@
 class BookShop {
   constructor(listOfArt, listOfCat) {
     this.listOfArt = listOfArt
-    this.bookWithCodeList = [];
-    this.sumOfCodeObject = {};
+    this.bookWithQtyList = [];
+    this.sumOfQtyObject = {};
     this.resultObject = {};
     this.result = '';
   };
 
-  convertBookWithCodeList(listOfArt) {
-    listOfArt.forEach(book => {
-      let bookWithCode = book.split(' ');
-      let initial = bookWithCode[0][0];
-      let code = bookWithCode[1];
-      this.bookWithCodeList.push({ initial: initial, code: code })
-      console.log(this.bookWithCodeList);
+  convertBookWithQtyList() {
+    this.listOfArt.forEach(book => {
+      let bookWithQty = book.split(' ');
+      let initial = bookWithQty[0][0];
+      let quantity = bookWithQty[1];
+      this.bookWithQtyList.push({ initial: initial, quantity: quantity })
     });
   };
+
+  addingQuantity(){
+    // console.log(bookWithQtyList)
+    this.bookWithQtyList.forEach(book => {
+      console.log(book)
+    })
+  }  
   // stockList() {
   //   let sortedBookList = listOfArt.sort();
   //   let bookWithCodeList = [];
@@ -26,15 +32,7 @@ class BookShop {
   //   // let checkEmptyValue = Object.values(resultList)
   //   // var checkedAllZeroes = checkEmptyValue.every(checkAllZeroes)
 
-  //   for (let i = 0; i < sortedBookList.length; i++) {
-  //     let bookWithCode = {};
-  //     let books = sortedBookList[i].split(' ');
-  //     let book = books[0];
-  //     let code = Number.parseInt(books[1]);
-  //     let initialOfBook = book[0].toString()
-  //     bookWithCodeList.push({ initial: initialOfBook, code: code })
-  //   };
-
+ 
   //   bookWithCodeList.forEach(item => {
   //     let initial = item.initial;
   //     let code = item.code;
