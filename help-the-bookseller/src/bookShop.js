@@ -5,6 +5,9 @@ function bookShop(listOfArt, listOfCat) {
   let sumOfCodeObject = {};
   let result = '';
 
+  let checkEmptyValue = Object.values(resultList)
+  var checkedAllZeroes = checkEmptyValue.every(checkAllZeroes)
+
   for (let i = 0; i < sortedBookList.length; i++) {
     let bookWithCode = {};
     let books = sortedBookList[i].split(' ');
@@ -40,34 +43,21 @@ function bookShop(listOfArt, listOfCat) {
     }
   };
 
-  const checkAllZeroes = function(zero){
+  const checkAllZeroes = function (zero) {
     return zero === 0
   }
-  let checkEmptyValue = Object.values(resultList) 
-  console.log(checkEmptyValue.every(checkAllZeroes))
-  
-  // for (var resultInitial in resultList) {
-  //   let resulCode = resultList[resultInitial];
-  //   if (resultList.hasOwnProperty(resultInitial)) {
-  //     if (resultList[resultInitial] === 0) {
-  //       return result
-  //     }
-  //   } else{
-  //     result += `(${resultInitial} : ${resulCode}) - `
-  //   }
-  // };
-  // return (result.slice(0, -3));
 
- 
+  if (checkedAllZeroes === true) {
+    return result
+  } else {
+    for (var resultInitial in resultList) {
+      let resultCode = resultList[resultInitial];
+      result += `(${resultInitial} : ${resultCode}) - `
+    }
+    return (result.slice(0, -3))
+  }
+
 };
-
-
-
-
-
-
-
-
 
 
 module.exports = bookShop;
