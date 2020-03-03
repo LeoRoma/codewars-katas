@@ -33,18 +33,32 @@ function bookShop(listOfArt, listOfCat) {
     for (var initialArt in sumOfCodeObject) {
       let codeArt = sumOfCodeObject[initialArt]
       if (initialCat === initialArt) {
-        resultList[initialCat] = codeArt; 
-      }else{
-        resultList[initialCat] 
+        resultList[initialCat] = codeArt;
+      } else {
+        resultList[initialCat]
       }
     }
   };
 
-  for(var resultInitial in resultList){
-    let resulCode = resultList[resultInitial];
-    result += `(${resultInitial} : ${resulCode}) - `
-  };
-  return (result.slice(0, -3))
+  const checkAllZeroes = function(zero){
+    return zero === 0
+  }
+  let checkEmptyValue = Object.values(resultList) 
+  console.log(checkEmptyValue.every(checkAllZeroes))
+  
+  // for (var resultInitial in resultList) {
+  //   let resulCode = resultList[resultInitial];
+  //   if (resultList.hasOwnProperty(resultInitial)) {
+  //     if (resultList[resultInitial] === 0) {
+  //       return result
+  //     }
+  //   } else{
+  //     result += `(${resultInitial} : ${resulCode}) - `
+  //   }
+  // };
+  // return (result.slice(0, -3));
+
+ 
 };
 
 
