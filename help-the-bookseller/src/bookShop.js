@@ -1,10 +1,9 @@
 function bookShop(listOfArt, listOfCat) {
   let sortedBookList = listOfArt.sort();
   let bookWithCodeList = [];
-  let sumOfCodeObject = {};
-  let sumOfCodeList = [];
-  let result = "";
 
+  let sumOfCodeObject = {};
+  let resultObject = {};
 
   for (let i = 0; i < sortedBookList.length; i++) {
     let bookWithCode = {};
@@ -14,30 +13,49 @@ function bookShop(listOfArt, listOfCat) {
     let initialOfBook = book[0].toString()
     // console.log(initialOfBook)
     // bookWithCode[initialOfBook] = code
-    bookWithCodeList.push({initial: initialOfBook, code: code})
+    // bookWithCodeList.push(bookWithCode)
+    bookWithCodeList.push({ initial: initialOfBook, code: code })
   };
-  console.log(bookWithCodeList)
+  // console.log(bookWithCodeList)
 
   bookWithCodeList.forEach(item => {
-    console.log(item.initial)
-    if(sumOfCodeList.hasOwnProperty(item.initial)){
-      sumOfCodeObject[item.initial] = sumOfCodeObject[item.initial] + item.code
-    }else{
-      sumOfCodeObject[item.initial] = item.code
+    let initial = item.initial;
+    let code = item.code;
+    if (sumOfCodeObject.hasOwnProperty(initial)) {
+      (sumOfCodeObject[initial] = sumOfCodeObject[initial] + code)
+    } else {
+      sumOfCodeObject[initial] = code
     }
-  })
+  });
+
+  console.log(sumOfCodeObject)
+
 
   // if (sumOfCodeList.length < 2) {
   //   let keyBook = Object.keys(bookObject)
   //   let codeBook = bookObject[listOfCat]
   //   return (`(${keyBook} : ${codeBook})`)
   // } else {
-  // const sumOfCodeList = listOfCat.reduce(function (acc, curr) {
-  //   acc[curr] = 0;
-  //   return acc;
-  // }, {});
-  // console.log(sumOfCodeList)
 
+  const resultList = listOfCat.reduce(function (acc, curr) {
+    acc[curr] = 0;
+    return acc;
+  }, {});
+  console.log(resultList)
+
+  for (var initialCat in resultList) {
+    let codeCat = resultList[initialCat];
+    for (var initialArt in sumOfCodeObject) {
+      let codeArt = sumOfCodeObject[initialArt]
+      if (initialCat === initialArt) {
+        resultList[initialCat] = codeArt; 
+      }else{
+        resultList[initialCat] 
+      }
+    }
+    // console.log(initialCat, resultList[initialCat])
+  }
+  console.log(resultList)
 
 
 
