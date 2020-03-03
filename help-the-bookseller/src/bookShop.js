@@ -30,7 +30,6 @@ function bookShop(listOfArt, listOfCat) {
   }, {});
 
   for (var initialCat in resultList) {
-    let codeCat = resultList[initialCat];
     for (var initialArt in sumOfCodeObject) {
       let codeArt = sumOfCodeObject[initialArt]
       if (initialCat === initialArt) {
@@ -45,7 +44,6 @@ function bookShop(listOfArt, listOfCat) {
     let resulCode = resultList[resultInitial];
     result += `(${resultInitial} : ${resulCode}) - `
   };
-  // console.log(result.slice(0, -3))
   return (result.slice(0, -3))
 };
 
