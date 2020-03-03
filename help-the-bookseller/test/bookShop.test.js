@@ -2,14 +2,16 @@ const BookShop = require('../src/bookShop.js');
 
 describe('BookShop', () => {
   let bookShop;
+  s = ['ABART 20'];
+  c = ['A'];
 
   beforeEach(() => {
-    bookShop = new BookShop
+    bookShop = new BookShop(s, c)
   });
 
   it('should return "A : 20" with "ABART 20"', () => {
     s = ['ABART 20'];
-    c = ['A']
+    c = ['A'];
     expect(bookShop.stockList(s, c)).toEqual('(A : 20)');
   });
 
@@ -41,5 +43,10 @@ describe('BookShop', () => {
     s = ["ABART 0", "BKWRK 0", "CDXEF 0", "BTSQZ 0", "DRTYM 0"];
     c = ["A", "B", "C", "W"];
     expect(bookShop(s, c)).toEqual('');
+  });
+
+  it('should return array with objects', () => {
+    bookShop.convertBookWithCodeList(s)
+    expect(bookShop.bookWithCodeList).toEqual(expect.arrayContaining([{ 'initial': 'A', 'code': '20' }]))
   });
 });
